@@ -1503,7 +1503,7 @@ BPatch_threadIndexExpr::BPatch_threadIndexExpr()
 BPatch_tidExpr::BPatch_tidExpr(BPatch_process *proc)
 {
   BPatch_Vector<BPatch_function *> thread_funcs;
-  proc->getImage()->findFunction("dyn_pthread_self", thread_funcs);
+  proc->getImage()->findFunction("dyn_pthread_self", thread_funcs, false, true, true);
   if (thread_funcs.size() != 1)
   {
     fprintf(stderr, "[%s:%u] - Internal Dyninst error.  Found %lu copies of "
